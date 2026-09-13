@@ -27,11 +27,12 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v4
 
-      - name: Run Istallation Script
+      - name: Run Installation Script
         run: ./scripts/deb/setup_${{ matrix.version }}.x
 
       - name: Install Nodejs
         run: |
+          apt-get update
           apt-get install nodejs -y
 
       - name: Validate Node Version
@@ -64,7 +65,7 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v4
 
-      - name: Run Istallation Script
+      - name: Run Installation Script
         run: ./scripts/rpm/setup_${{ matrix.version }}.x
 
       - name: Install Nodejs
